@@ -1,8 +1,15 @@
 class UsersController < ApplicationController
 
     def index
-        @users = User.all
-        render json: @users
+
+        if params[:username]
+            @user = User.select(:id, :username, "COUNT(artworks) as number_of_artworks").joins(:artworks).where(username: params[:username]).group("users.id")
+            render json: @user
+        else 
+            @users = User.all
+            render json: @users
+        end 
+       
     end
 
     def create
