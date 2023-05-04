@@ -22,4 +22,9 @@ artwork1 = Artwork.create!(title: 'Mona Lisa', image_url: 'https://tinyurl.com/3
 artwork2 = Artwork.create!(title: 'Birth of Venus', image_url: 'https://tinyurl.com/4xtbahzj', artist_id: user2.id)
 artwork3 = Artwork.create!(title: 'Self Portrait', image_url: 'https://tinyurl.com/y453sjcm', artist_id: user3.id)
 
+share1 = ArtworkShare.create!(artwork_id: 1, viewer_id: 3)
+share2 = ArtworkShare.create!(artwork_id: 1, viewer_id: 2)
+share3 = ArtworkShare.create!(artwork_id: 2, viewer_id: 1)
+share4 = ArtworkShare.create!(artwork_id: 3, viewer_id: 2)
+
 puts 'seeds have been updated'

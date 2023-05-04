@@ -23,6 +23,20 @@ class Artwork < ApplicationRecord
     class_name: :ArtworkShare,
     dependent: :destroy
 
+  has_many :viewers,
+    through: :shared_artworks,
+    source: :viewer
+
+  def self.artworks_for_user_id(user_id)
+    artist_artwork = Artwork.select("artworks.*").joins(:artist).where(users: {id: user_id})
+
+    viewed_artwork = Artwork.select("artworks.*").joins(:viewers).where(users: {id: user_id})
+
+    artist_artwork + viewed_artwork
+
+
+  end
+
 
 
 
