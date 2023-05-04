@@ -12,6 +12,7 @@
 class Artwork < ApplicationRecord
   validates :title, :artist_id, presence: true
   validates :image_url, uniqueness: true
+  validates :title, uniqueness: {scope: :artist_id}
 
   belongs_to :artist,
     foreign_key: :artist_id,
@@ -19,10 +20,10 @@ class Artwork < ApplicationRecord
 
   has_many :shared_artworks,
     foreign_key: :artwork_id,
-    class_name: :ArtworkShare, 
+    class_name: :ArtworkShare,
     dependent: :destroy
 
-  
+
 
 
 end

@@ -9,6 +9,10 @@ User.destroy_all
 Artwork.destroy_all
 ArtworkShare.destroy_all
 
+["users", "artworks", "artwork_shares"].each do |table_name|
+    ApplicationRecord.connection.reset_pk_sequence!(table_name)
+end
+
 
 user1 = User.create!(username: 'Leonardo Davinci')
 user2 = User.create!(username: "Sandro Botticelli")
@@ -18,3 +22,4 @@ artwork1 = Artwork.create!(title: 'Mona Lisa', image_url: 'https://tinyurl.com/3
 artwork2 = Artwork.create!(title: 'Birth of Venus', image_url: 'https://tinyurl.com/4xtbahzj', artist_id: user2.id)
 artwork3 = Artwork.create!(title: 'Self Portrait', image_url: 'https://tinyurl.com/y453sjcm', artist_id: user3.id)
 
+puts 'seeds have been updated'
