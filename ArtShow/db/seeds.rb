@@ -27,4 +27,9 @@ share2 = ArtworkShare.create!(artwork_id: 1, viewer_id: 2)
 share3 = ArtworkShare.create!(artwork_id: 2, viewer_id: 1)
 share4 = ArtworkShare.create!(artwork_id: 3, viewer_id: 2)
 
+comment1 = Comment.create!(author_id: 1, artwork_id: 2, body: "wow, very art. such wow.")
+comment2 = Comment.create!(author_id: 3, artwork_id: 1, body: "nice smile, but no unibrow.")
+comment3 = Comment.create!(author_id: 2, artwork_id: 3, body: "cute monkey.")
+
+
 puts 'seeds have been updated'

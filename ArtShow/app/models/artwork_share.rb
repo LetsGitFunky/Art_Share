@@ -10,14 +10,15 @@
 #
 class ArtworkShare < ApplicationRecord
   validates  :artwork_id, :viewer_id, presence: true
-  
 
   belongs_to :artwork,
     foreign_key: :artwork_id,
-    class_name: :Artwork
+    class_name: :Artwork,
+    inverse_of: :shared_artworks
 
   belongs_to :viewer,
     foreign_key: :viewer_id,
-    class_name: :User
+    class_name: :User,
+    inverse_of: :shared_viewers
 
 end
