@@ -35,7 +35,8 @@ class Artwork < ApplicationRecord
     inverse_of: :artwork,
     dependent: :destroy
 
-
+    has_many :likes, as: :likeable,
+    dependent: :destroy
 
   def self.artworks_for_user_id(user_id)
     artist_artwork = Artwork.select("artworks.*").joins(:artist).where(users: {id: user_id})

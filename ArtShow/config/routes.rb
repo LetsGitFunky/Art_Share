@@ -15,12 +15,19 @@ Rails.application.routes.draw do
   resources :users, except: [:edit, :new] do
     resources :comments, only: [:index]
     resources :artworks, only: [:index]
+    resources :likes, only: [:index]
   end
   resources :artworks, except: [:edit, :new] do
     resources :comments, only: [:index]
+    resources :likes, only: [:index]
   end
   resources :artwork_shares, only: [:create, :destroy]
-  resources :comments, only: [:create, :destroy]
+  resources :comments, only: [:create, :destroy] do
+    resources :likes, only: [:index]
+  end
+
+  resources :likes, only: [:create, :destroy]
+
 
   # get '/users/:user_id/artworks', to: 'artworks#index', as: "artworks_for_user_id"
 end

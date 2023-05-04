@@ -31,5 +31,8 @@ comment1 = Comment.create!(author_id: 1, artwork_id: 2, body: "wow, very art. su
 comment2 = Comment.create!(author_id: 3, artwork_id: 1, body: "nice smile, but no unibrow.")
 comment3 = Comment.create!(author_id: 2, artwork_id: 3, body: "cute monkey.")
 
+like1 = Like.create!(liker_id: 1, likeable_type: "Comment", likeable_id: comment2.id)
+like2 = Like.create!(liker_id: 1, likeable_type: "Artwork", likeable_id: artwork2.id)
+
 
 puts 'seeds have been updated'

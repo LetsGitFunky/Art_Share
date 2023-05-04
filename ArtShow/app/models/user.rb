@@ -32,6 +32,12 @@ class User < ApplicationRecord
         inverse_of: :author,
         dependent: :destroy
 
+    has_many :likes,
+        foreign_key: :liker_id,
+        class_name: :Like,
+        dependent: :destroy,
+        inverse_of: :liker
+
 
 
 end
