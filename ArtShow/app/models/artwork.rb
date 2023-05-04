@@ -17,4 +17,12 @@ class Artwork < ApplicationRecord
     foreign_key: :artist_id,
     class_name: :User
 
+  has_many :shared_artworks,
+    foreign_key: :artwork_id,
+    class_name: :ArtworkShare, 
+    dependent: :destroy
+
+  
+
+
 end
