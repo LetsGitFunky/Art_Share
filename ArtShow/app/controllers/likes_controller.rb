@@ -7,7 +7,7 @@ class LikesController < ApplicationController
         elsif params[:comment_id]
             @likes = Like.select("likes.*").where(likeable_id: params[:comment_id])
         end
-        render json: @comments
+        render json: @likes
     end
 
     def create
@@ -28,6 +28,6 @@ class LikesController < ApplicationController
     private
 
     def like_params
-        params.require(:like).permit(:liker_id, :likeable_id)
+        params.require(:like).permit(:liker_id, :likeable_id, :likeable_type)
     end
 end

@@ -21,6 +21,8 @@ user3 = User.create!(username: "Frida Kahlo")
 artwork1 = Artwork.create!(title: 'Mona Lisa', image_url: 'https://tinyurl.com/3taxez2m', artist_id: user1.id )
 artwork2 = Artwork.create!(title: 'Birth of Venus', image_url: 'https://tinyurl.com/4xtbahzj', artist_id: user2.id)
 artwork3 = Artwork.create!(title: 'Self Portrait', image_url: 'https://tinyurl.com/y453sjcm', artist_id: user3.id)
+artwork4 = Artwork.create!(title: 'Last Supper', image_url: 'https://tinyurl.com/5n7nutnb', artist_id: user1.id)
+
 
 share1 = ArtworkShare.create!(artwork_id: 1, viewer_id: 3)
 share2 = ArtworkShare.create!(artwork_id: 1, viewer_id: 2)
@@ -32,7 +34,10 @@ comment2 = Comment.create!(author_id: 3, artwork_id: 1, body: "nice smile, but n
 comment3 = Comment.create!(author_id: 2, artwork_id: 3, body: "cute monkey.")
 
 like1 = Like.create!(liker_id: 1, likeable_type: "Comment", likeable_id: comment2.id)
-like2 = Like.create!(liker_id: 1, likeable_type: "Artwork", likeable_id: artwork2.id)
+like2 = Like.create!(liker_id: 2, likeable_type: "Artwork", likeable_id: artwork2.id)
+like3 = Like.create!(liker_id: 3, likeable_type: "Artwork", likeable_id: artwork1.id)
+like4 = Like.create!(liker_id: 3, likeable_type: "Comment", likeable_id: comment3.id)
+
 
 
 puts 'seeds have been updated'
